@@ -16,7 +16,7 @@ export const BASE = new URL('./', import.meta.url).pathname;
 // pack at the root (/manifest.json, /pack/ = R2 packs/five/), OPFS 'pack' - unchanged so returning players keep their
 // cache. horde: the pack also ships the horde overlay (pack/web-manifest-horde.json, tools/web/mkmodpack.mjs --manifest), so
 // the page runs horde with ?horde=1 (the landing's HORDE MODE toggle; landing.js ENTRIES carries the same flag).
-// hordetoggle tests (2026-10-04, round 100, 300 alive): Five, Kino, Der Riese, Nacht, Verr�ckt, Shi No Numa reach 300.
+// hordetoggle tests (2026-10-04, round 100, 300 alive): Five, Kino, Der Riese, Nacht, Verrückt, Shi No Numa reach 300.
 // Not yet: Moon (starts in No Man's Land, whose own spawning keeps ~20 alive; some perk clip stays) and Ascension (the page
 // froze in 3 of 3 runs at 300; noperks unverified). Packs without the overlay: Call of the Dead, Shangri-La.
 // engineS: engine seconds from start to map-loaded for the progress bar's ETA (play.js; default 27).
@@ -64,7 +64,9 @@ const loopback = ['127.0.0.1', 'localhost', '[::1]'].includes(globalThis.locatio
 const packOrigin = query.get('packOrigin') === '0' ? ''
   : loopback ? query.get('packOrigin') || ''
   : globalThis.location?.origin === PACK_ORIGIN_FOR ? PACK_ORIGIN : '';
-export const packCdn = packOrigin ? packOrigin.replace(/\/+$/, '') + '/packs/' + map.slug + '/' : '';
+export const packCdn = map.slug === 'kino' 
+  ? 'https://github.com/ozzycoutsmma/Call-of-Duty-Black-Ops-Zombies/releases/download/v1.0/' 
+  : (packOrigin ? packOrigin.replace(/\/+$/, '') + '/packs/' + map.slug + '/' : '');
 export const opfsRoot = '/opfs/' + map.opfs + '/files';
 // Worker URLs carry the map so their OPFS namespace and pack root match the page's.
 export const workerUrl = url => {
