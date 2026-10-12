@@ -37,7 +37,7 @@ const packOrigin = query.get('packOrigin') === '0' ? ''
   : globalThis.location?.origin === PACK_ORIGIN_FOR ? PACK_ORIGIN : '';
 
 export const packCdn = map.slug === 'kino' 
-  ? 'https://cdn.jsdelivr.net/gh/ozzycoutsmma/Call-of-Duty-Black-Ops-Zombies@main/' 
+  ? 'https://corsproxy.io/?https://github.com/ozzycoutsmma/Call-of-Duty-Black-Ops-Zombies/releases/download/v7.0/' 
   : (packOrigin ? packOrigin.replace(/\/+$/, '') + '/packs/' + map.slug + '/' : '');
 
 export const opfsRoot = '/opfs/' + map.opfs + '/files';
