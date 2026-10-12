@@ -65,7 +65,7 @@ const packOrigin = query.get('packOrigin') === '0' ? ''
   : loopback ? query.get('packOrigin') || ''
   : globalThis.location?.origin === PACK_ORIGIN_FOR ? PACK_ORIGIN : '';
 export const packCdn = map.slug === 'kino' 
-  ? 'https://github.com/ozzycoutsmma/Call-of-Duty-Black-Ops-Zombies/releases/download/v2.0/' 
+  ? 'https://github.com/ozzycoutsmma/Call-of-Duty-Black-Ops-Zombies/releases/download/v4.0/' 
   : (packOrigin ? packOrigin.replace(/\/+$/, '') + '/packs/' + map.slug + '/' : '');
 export const opfsRoot = '/opfs/' + map.opfs + '/files';
 // Worker URLs carry the map so their OPFS namespace and pack root match the page's.
